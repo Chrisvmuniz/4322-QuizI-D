@@ -11,31 +11,35 @@ Iternate through the dictionary to print out their name and thier new salary (as
 import csv
 
 #open the file
-
+csvFile = open("employee_data.csv","r")
+  
 
 
 
 #create an empty dictionary
 
+updatedSalaryDict = {}
+  
+
 
 #use a loop to iterate through the csv file
+reader = csv.DictReader(csvFile)
+for x in reader:
+    employees = [x for x in reader] #read in info for employee list
 
 
-    #check if the employee fits the search criteria
 
-
-    
+    #check if the employee fits the search criteria 
+for employee in employees:
+    if employee['Department'] == 'Marketing' and employee['Title'] == 'CSR':
+        updatedSalaryDict[(float(employee['Salary'])*1.1)] = f"{employee['First Name']} {employee['Last Name']}"
+    else:
+        updatedSalaryDict[float(employee['Salary'])] = f"{employee['First Name']} {employee['Last Name']}"
 
 print()
 print('=========================================')
 print()
 
-#iternate through the dictionary and print out the key and value as per printout
-
-
-
-          
-        
-
-        
-    
+#iternate through the dictionary and print out the key and value as per printout   
+for key in updatedSalaryDict: 
+    print ("Name: " + str(updatedSalaryDict[key]) + "\nSalary: $" + str(round(key, 2)) + "\n")
