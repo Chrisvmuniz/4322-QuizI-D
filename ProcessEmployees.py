@@ -27,6 +27,10 @@ reader = csv.DictReader(csvFile)
 for x in reader:
     employees = [x for x in reader] #read in info for employee list
 
+#print before
+print("===BEFORE===")
+for employee in employees:
+    print(print ("Name: " + str(employee['First Name'] +" " + employee['Last Name']) + "\nSalary: $" + str(round(float(employee['Salary']), 2)) + "\n"))
 
 
     #check if the employee fits the search criteria 
@@ -40,6 +44,7 @@ print()
 print('=========================================')
 print()
 
-#iternate through the dictionary and print out the key and value as per printout   
+#iternate through the dictionary and print out the key and value as per printout
+print("===AFTER===") 
 for key in updatedSalaryDict: 
     print ("Name: " + str(updatedSalaryDict[key]) + "\nSalary: $" + str(round(key, 2)) + "\n")
